@@ -1,0 +1,42 @@
+.starship-game {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 100px;
+    flex-flow: column wrap;
+
+    &__cards {
+        display: flex;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    &__play {
+        display: flex;
+        width: 150px;
+        height: 50px;
+        background: white;
+        color: black;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #ddd;
+        font-size: 17px;
+        transition: background .3s ease;
+
+        &:hover {
+            background: #ddd;
+            cursor: pointer;
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &__result {
+        span {
+            color: green;
+        }
+    }
+}

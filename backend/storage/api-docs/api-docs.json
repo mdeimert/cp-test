@@ -1,0 +1,254 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "CPTEST",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/v1/starships": {
+            "get": {
+                "tags": [
+                    "Starships"
+                ],
+                "summary": "Get All Starships with Pagination",
+                "description": "Get Starship",
+                "operationId": "getStarships",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page Number"
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized."
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Starships"
+                ],
+                "summary": "Create Starship",
+                "description": "Create Starship",
+                "operationId": "starshipCreate",
+                "requestBody": {
+                    "description": "Starship object",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "crew",
+                                    "model",
+                                    "image"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Death Star"
+                                    },
+                                    "crew": {
+                                        "type": "integer",
+                                        "format": "integer",
+                                        "example": "434"
+                                    },
+                                    "model": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "DS24"
+                                    },
+                                    "image": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "https://loremflickr.com/g/300/300/starship"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "422": {
+                        "description": "The given data was invalid",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The given data was invalid."
+                                        },
+                                        "errors": {
+                                            "type": "object",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/starships/{starship}": {
+            "get": {
+                "tags": [
+                    "Starships"
+                ],
+                "summary": "Get Starship",
+                "description": "Get Starship",
+                "operationId": "getStarship",
+                "parameters": [
+                    {
+                        "name": "starship",
+                        "in": "path",
+                        "description": "Starship ID",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized."
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Starships"
+                ],
+                "summary": "Update Starship",
+                "description": "Update Starship",
+                "operationId": "updateStarship",
+                "parameters": [
+                    {
+                        "name": "starship",
+                        "in": "path",
+                        "description": "Starship ID",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "description": "Starship object",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Death Star"
+                                    },
+                                    "crew": {
+                                        "type": "integer",
+                                        "format": "integer",
+                                        "example": "434"
+                                    },
+                                    "model": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "DS24"
+                                    },
+                                    "image": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "https://loremflickr.com/g/300/300/starship"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "422": {
+                        "description": "The given data was invalid",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The given data was invalid."
+                                        },
+                                        "errors": {
+                                            "type": "object",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Starships"
+                ],
+                "summary": "Delete Starship",
+                "description": "Delete Starship",
+                "operationId": "deleteStarship",
+                "parameters": [
+                    {
+                        "name": "starship",
+                        "in": "path",
+                        "description": "Starship ID",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "422": {
+                        "description": "The given data was invalid",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The given data was invalid."
+                                        },
+                                        "errors": {
+                                            "type": "object",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/starships/play": {
+            "get": {
+                "tags": [
+                    "Starships"
+                ],
+                "summary": "Play Starship",
+                "description": "Play Starship",
+                "operationId": "playStarship",
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized."
+                    }
+                }
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}

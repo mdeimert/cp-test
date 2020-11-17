@@ -1,0 +1,22 @@
+.starship {
+    display: flex;
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    flex-flow: column wrap;
+    margin-left: 20px;
+    margin-right: 20px;
+
+    &__description {
+        display: flex;
+        flex-flow: column;
+        margin-top: 20px;
+        margin-top: 20px;
+    }
+
+    &__descriptionItem {
+        display: flex;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}

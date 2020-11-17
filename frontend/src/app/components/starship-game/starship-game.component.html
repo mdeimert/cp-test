@@ -1,0 +1,12 @@
+<div class="starship-game">
+    <h2>Starship battle matchmaking</h2>
+    <div class="starship-game__cards" *ngIf="matchmaking">
+        <app-starship [starship]="matchmaking.starship1"></app-starship>
+        <app-starship [starship]="matchmaking.starship2"></app-starship>
+    </div>
+    <h1 *ngIf="matchmaking && matchmaking.winner != 'DRAW'" class="starship-game__result">
+        Winner: <span>{{ matchmaking[matchmaking.winner].name }}</span>
+    </h1>
+    <button class="starship-game__play" (click)="play()">PLAY</button>
+   
+</div>
